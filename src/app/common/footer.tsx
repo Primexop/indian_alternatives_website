@@ -1,6 +1,5 @@
 "use client";
-import { AiFillFacebook } from "react-icons/ai";
-import { FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaWhatsapp, FaGithub } from "react-icons/fa";
 import { LuCopyright } from "react-icons/lu";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -58,15 +57,6 @@ export function Footer() {
                         <div className="mt-6 flex space-x-6 items-center">
                             <div className="flex items-center space-x-4 bg-gray-50 dark:bg-gray-800 rounded-full px-6 py-2 transition-all hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <a
-                                    href={socialMedia.facebook}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-blue-600 transition-colors"
-                                >
-                                    <span className="sr-only">Facebook</span>
-                                    <AiFillFacebook className="h-6 w-6" />
-                                </a>
-                                <a
                                     href={socialMedia.instagram}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -92,6 +82,16 @@ export function Footer() {
                                 >
                                     <span className="sr-only">WhatsApp</span>
                                     <FaWhatsapp className="h-6 w-6" />
+                                </a>
+                                <a
+                                    href="https://github.com/Primexop/indian_alternatives_website"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                    title="Contribute on GitHub"
+                                >
+                                    <span className="sr-only">GitHub</span>
+                                    <FaGithub className="h-6 w-6" />
                                 </a>
                                 <button
                                     onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -194,6 +194,15 @@ export function Footer() {
                                 className="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
                             >
                                 Primexop.com
+                            </a>
+                            {" "}•{" "}
+                            <a
+                                href="https://github.com/Primexop/indian_alternatives_website"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
+                            >
+                                Contribute on GitHub
                             </a>
                         </span>
                     </p>
