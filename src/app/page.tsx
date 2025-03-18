@@ -1,10 +1,15 @@
 "use client";
 
-export default function Home() {
+import { HeroSection } from "./components/heroSection";
+import { ImpactAreas } from "./components/impactAreas";
+import { FeaturedInitiatives } from "./components/featuredInitiatives";
 
+export default function Home() {
     return (
-        <>
-            Body Here
-        </>
+        <main>
+            <HeroSection />
+            <ImpactAreas />
+            <FeaturedInitiatives />
+        </main>
     );
 }

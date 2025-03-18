@@ -14,13 +14,29 @@ export const metadata: Metadata = {
     title: metaData.title,
     description: metaData.description,
     keywords: metaData.keywords,
-
+    robots: "index, follow",
+    alternates: {
+        canonical: "/"
+    },
     openGraph: {
         title: metaData.title,
         description: metaData.description,
         type: "website",
-        locale: "en_IE",
+        locale: "en_IN",
+        siteName: "Indian Alternatives",
+        images: [{
+            url: "/images/indian-alternatives-logo.svg",
+            width: 1200,
+            height: 630,
+            alt: "Indian Alternatives"
+        }]
     },
+    twitter: {
+        card: "summary_large_image",
+        title: metaData.title,
+        description: metaData.description,
+        images: ["/images/indian-alternatives-logo.svg"]
+    }
 };
 
 export default function RootLayout({
@@ -41,10 +57,10 @@ export default function RootLayout({
                 {/* TODO: Fix the type error */}
                 {/* @ts-expect-error   unexpected type error */}
                 <Providers>
-                    <div className="flex flex-col min-h-screen justify-between  overflow-hidden">
+                    <div className="flex flex-col min-h-screen justify-between overflow-hidden">
                         <Header />
 
-                        <div className="mb-auto">{children}</div>
+                        <div className="mb-auto pt-24">{children}</div>
 
                         <Footer />
                         {/* <ScrollToTop /> */}

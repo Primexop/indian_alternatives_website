@@ -1,7 +1,13 @@
-export const metaData = {
-    title: "Dummy X",
-    description: "Primexop Starter Template",
-    keywords: ["Primexop"],
+export interface MetaData {
+    title: string;
+    description: string;
+    keywords: string[];
+}
+
+export const metaData: MetaData = {
+    title: "Indian Alternatives | Digital Products & Services",
+    description: "Discover high-quality Indian alternatives for digital services and products, from cloud solutions to SaaS platforms.",
+    keywords: ["Indian alternatives", "digital services", "SaaS products", "cloud services", "Indian tech companies", "Indian software", "Make in India"]
 };
 
 export const socialMedia = {

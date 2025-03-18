@@ -1,0 +1,13 @@
+<svg width="192" height="56" viewBox="0 0 192 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_1_2)">
+    <path d="M24.5 10.5C19.2533 10.5 15 14.7533 15 20C15 25.2467 19.2533 29.5 24.5 29.5C29.7467 29.5 34 25.2467 34 20C34 14.7533 29.7467 10.5 24.5 10.5ZM24.5 27.5C20.3583 27.5 17 24.1417 17 20C17 15.8583 20.3583 12.5 24.5 12.5C28.6417 12.5 32 15.8583 32 20C32 24.1417 28.6417 27.5 24.5 27.5Z" fill="#FF6B6B"/>
+    <path d="M24.5 15.5C22.0147 15.5 20 17.5147 20 20C20 22.4853 22.0147 24.5 24.5 24.5C26.9853 24.5 29 22.4853 29 20C29 17.5147 26.9853 15.5 24.5 15.5Z" fill="#FF6B6B"/>
+    <text x="45" y="25" font-family="Arial" font-size="16" font-weight="bold" fill="#333333">Indian</text>
+    <text x="45" y="45" font-family="Arial" font-size="16" font-weight="bold" fill="#666666">Alternatives</text>
+  </g>
+  <defs>
+    <clipPath id="clip0_1_2">
+      <rect width="192" height="56" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
