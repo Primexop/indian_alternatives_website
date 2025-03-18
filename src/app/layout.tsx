@@ -1,26 +1,42 @@
-import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Bai_Jamjuree } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "./common/theme-provider";
-import { Navbar } from "./common/navbar";
+import { Providers } from "./providers";
+import "react-photo-view/dist/react-photo-view.css";
+import { Metadata } from "next";
+import { metaData } from "./constants";
+import { Header } from "./common/header";
 import { Footer } from "./common/footer";
 
-const inter = Inter({
-    subsets: ["latin"],
-    display: "swap",
-    variable: "--font-inter",
-});
-
-const poppins = Poppins({
-    weight: ["400", "500", "600", "700"],
-    subsets: ["latin"],
-    display: "swap",
-    variable: "--font-poppins",
-});
+const fontFamily = Bai_Jamjuree({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], display: "swap" });
 
 export const metadata: Metadata = {
-    title: "Indian Alternatives - Find Indian Alternatives to Popular Products",
-    description: "Discover Indian alternatives to popular products and services. Support Indian innovation and self-reliance with our curated list of alternatives.",
+    metadataBase: new URL("https://primexop.com"),
+    title: metaData.title,
+    description: metaData.description,
+    keywords: metaData.keywords,
+    robots: "index, follow",
+    alternates: {
+        canonical: "/"
+    },
+    openGraph: {
+        title: metaData.title,
+        description: metaData.description,
+        type: "website",
+        locale: "en_IN",
+        siteName: "Indian Alternatives",
+        images: [{
+            url: "/images/indian-alternatives-logo.svg",
+            width: 1200,
+            height: 630,
+            alt: "Indian Alternatives"
+        }]
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: metaData.title,
+        description: metaData.description,
+        images: ["/images/indian-alternatives-logo.svg"]
+    }
 };
 
 export default function RootLayout({
@@ -29,20 +45,27 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
-            <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange
-                >
-                    <div className="min-h-screen flex flex-col">
-                        <Navbar />
-                        <main className="flex-grow">{children}</main>
+        <html suppressHydrationWarning={true} lang="en">
+            {/* <head>
+      <link rel="icon" href="favicon.ico" sizes="any" />
+    </head> */}
+
+            <body
+                className={fontFamily.className + " bg-[#ffffffec] dark:bg-black dark:text-white "}
+                suppressHydrationWarning={true}
+            >
+                {/* TODO: Fix the type error */}
+                {/* @ts-expect-error   unexpected type error */}
+                <Providers>
+                    <div className="flex flex-col min-h-screen justify-between overflow-hidden">
+                        <Header />
+
+                        <div className="mb-auto pt-24">{children}</div>
+
                         <Footer />
+                        {/* <ScrollToTop /> */}
                     </div>
-                </ThemeProvider>
+                </Providers>
             </body>
         </html>
     );

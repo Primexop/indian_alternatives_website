@@ -1,5 +1,5 @@
 "use client";
-import { FaInstagram, FaTwitter, FaWhatsapp, FaGithub } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaWhatsapp, FaGithub, FaHeart } from "react-icons/fa";
 import { LuCopyright } from "react-icons/lu";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -180,32 +180,32 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 bg-gradient-to-r from-gray-50 to-white dark:from-gray-900 dark:to-black rounded-t-3xl">
-                    <p className="text-base text-gray-400 dark:text-gray-500">
-                        <span className="flex items-center justify-center gap-2 text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
-                            <LuCopyright className="inline-block" /> {new Date().getFullYear()} Indian Alternatives. All rights reserved.
-                        </span>
-                        <span className="block mt-2 text-center">
-                            Developed and maintained by{" "}
+                <div className="mt-8 pt-8 border-t border-gray-100 dark:border-gray-800">
+                    <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                        <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+                            <LuCopyright className="h-4 w-4" />
+                            <span>2024 Indian Alternatives. All rights reserved.</span>
+                        </div>
+                        <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
                             <a
                                 href="https://primexop.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
+                                className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors flex items-center gap-1"
                             >
-                                Primexop.com
+                                opensourced with <FaHeart className="text-red-500 animate-pulse" /> by primexop.com
                             </a>
-                            {" "}•{" "}
+                            <span>•</span>
                             <a
                                 href="https://github.com/Primexop/indian_alternatives_website"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
+                                className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                             >
                                 Contribute on GitHub
                             </a>
-                        </span>
-                    </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>
