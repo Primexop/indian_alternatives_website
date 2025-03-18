@@ -3,6 +3,8 @@
 import { useSearchParams } from "next/navigation";
 import { alternatives } from "../alternatives-to/page";
 import Image from "next/image";
+import SearchBar from "../components/searchBar";
+import { motion } from "framer-motion";
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
@@ -31,13 +33,29 @@ export default function SearchPage() {
           priority
         />
       </div>
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Search Results for "{query}"
-        </h1>
+      
+      <div className="max-w-6xl mx-auto relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Search Results for "{query}"
+          </h1>
+          <div className="max-w-2xl mx-auto">
+            <SearchBar />
+          </div>
+        </motion.div>
         
         {filteredAlternatives.length === 0 ? (
-          <div className="text-center py-12">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-center py-12"
+          >
             <div className="rounded-full bg-gray-100 dark:bg-gray-800 p-6 mx-auto w-24 h-24 flex items-center justify-center mb-6">
               <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -45,12 +63,15 @@ export default function SearchPage() {
             </div>
             <p className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">No results found</p>
             <p className="text-gray-600 dark:text-gray-400">Try searching for different terms or browse our categories</p>
-          </div>
+          </motion.div>
         ) : (
           <div className="space-y-8">
-            {filteredAlternatives.map((category) => (
-              <div 
+            {filteredAlternatives.map((category, index) => (
+              <motion.div
                 key={category.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
                 className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="flex items-center gap-4 mb-6">
@@ -62,9 +83,10 @@ export default function SearchPage() {
                 </p>
                 <div className="grid md:grid-cols-2 gap-6">
                   {category.alternatives.map((alt) => (
-                    <div 
+                    <motion.div
                       key={alt.name}
-                      className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-100 dark:border-gray-700 rounded-xl p-6 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
+                      whileHover={{ scale: 1.02 }}
+                      className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-100 dark:border-gray-700 rounded-xl p-6 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:shadow-lg"
                     >
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{alt.name}</h3>
                       <p className="text-gray-600 dark:text-gray-300 mb-4 min-h-[3rem]">
@@ -81,10 +103,10 @@ export default function SearchPage() {
                           <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                         </svg>
                       </a>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         )}

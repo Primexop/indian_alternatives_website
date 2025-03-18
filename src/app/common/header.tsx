@@ -2,13 +2,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaBars, FaSearch } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import SearchBar from "../components/searchBar";
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const [searchQuery, setSearchQuery] = useState("");
 
     const navLinksData = [
         { title: "Categories", path: "/categories" },
@@ -24,16 +24,8 @@ export function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const handleSearch = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (searchQuery.trim()) {
-            window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
-            setSearchQuery("");
-        }
-    };
-
     return (
-        <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-white/80 backdrop-blur-sm"}`}>
+        <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white/95 shadow-md backdrop-blur-sm" : "bg-white/80 backdrop-blur-sm"}`}>
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
                 <div className="w-full py-4 flex items-center justify-between">
                     <div className="flex items-center gap-8">
@@ -65,20 +57,9 @@ export function Header() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <form onSubmit={handleSearch} className="hidden md:flex items-center">
-                            <div className="relative">
-                                <input
-                                    type="text"
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    placeholder="Search alternatives..."
-                                    className="w-48 lg:w-64 pl-4 pr-10 py-2 rounded-full border border-gray-200 focus:outline-none focus:border-blue-500 transition-all"
-                                />
-                                <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-blue-500 transition-colors">
-                                    <FaSearch className="w-4 h-4" />
-                                </button>
-                            </div>
-                        </form>
+                        <div className="hidden md:block w-64 lg:w-96">
+                            <SearchBar />
+                        </div>
 
                         <button
                             className="lg:hidden text-2xl text-gray-600 hover:text-blue-600 transition-colors"
@@ -109,20 +90,9 @@ export function Header() {
                         </button>
                     </div>
 
-                    <form onSubmit={handleSearch} className="mb-6 md:hidden">
-                        <div className="relative">
-                            <input
-                                type="text"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Search alternatives..."
-                                className="w-full pl-4 pr-10 py-2 rounded-full border border-gray-200 focus:outline-none focus:border-blue-500 transition-all"
-                            />
-                            <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-blue-500 transition-colors">
-                                <FaSearch className="w-4 h-4" />
-                            </button>
-                        </div>
-                    </form>
+                    <div className="mb-6 md:hidden">
+                        <SearchBar />
+                    </div>
 
                     <nav className="space-y-4">
                         {navLinksData.map((link, i) => (

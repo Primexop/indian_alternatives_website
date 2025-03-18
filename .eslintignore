@@ -1,8 +1,7 @@
 *.html
 *.md
 *.json
-out/**.**
-.next/**.**
+dist/**.**
 tailwind.config.js
-backendPortal
+b2fPortal
 vite-env.d.ts

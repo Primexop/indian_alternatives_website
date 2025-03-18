@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50 relative overflow-hidden">
