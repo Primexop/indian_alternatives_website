@@ -25,9 +25,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env*.local
-.env
+
 
 # vercel
 .vercel
@@ -37,3 +35,19 @@ yarn-error.log*
 next-env.d.ts
 
 scraper
+
+
+# .env environment variables file
+.env
+
+#b2fPortal
+b2fPortal/**/file_details.json
+
+# Tanstack Router
+src/routeTree.gen.ts
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

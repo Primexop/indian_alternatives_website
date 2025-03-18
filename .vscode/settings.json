@@ -10,9 +10,11 @@
     "Pressable",
     "pwsh",
     "qrcode",
+    "Tanstack",
     "tourny",
     "usehooks",
     "Usergroup",
+    "vercel",
     "zustand"
   ],
   "editor.formatOnSave": true,
