@@ -13,8 +13,6 @@ export function Header() {
     const navLinksData = [
         { title: "Categories", path: "/categories" },
         { title: "Alternatives", path: "/alternatives-to" },
-        { title: "Latest", path: "/latest" },
-        { title: "Blog", path: "/blog" },
         { title: "About", path: "/about" },
     ];
 

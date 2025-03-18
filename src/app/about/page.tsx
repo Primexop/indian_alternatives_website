@@ -2,7 +2,16 @@
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-full h-64 pointer-events-none">
+        <Image
+          src="/images/about-wave.svg"
+          alt="Background wave"
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
@@ -15,7 +24,7 @@ export default function AboutPage() {
 
         <div className="mt-16">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
               <div className="px-6 py-8">
                 <div className="text-center">
                   <h3 className="text-xl font-medium text-gray-900">Our Mission</h3>
@@ -26,7 +35,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
               <div className="px-6 py-8">
                 <div className="text-center">
                   <h3 className="text-xl font-medium text-gray-900">Our Vision</h3>
@@ -37,7 +46,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
               <div className="px-6 py-8">
                 <div className="text-center">
                   <h3 className="text-xl font-medium text-gray-900">Our Values</h3>
@@ -50,7 +59,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="mt-16 bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="mt-16 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
           <div className="px-6 py-8">
             <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
               Why Choose Indian Alternatives?

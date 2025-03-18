@@ -11,28 +11,16 @@ export function Footer() {
     const router = useRouter();
     const digitalServices = [
         {
-            title: "Cloud Services",
-            href: "/services/cloud"
+            title: "Categories",
+            href: "/categories"
         },
         {
-            title: "Enterprise Software",
-            href: "/services/enterprise"
+            title: "Alternatives",
+            href: "/alternatives-to"
         },
         {
-            title: "Digital Infrastructure",
-            href: "/services/infrastructure"
-        },
-        {
-            title: "Mobile Solutions",
-            href: "/services/mobile"
-        },
-        {
-            title: "AI & Analytics",
-            href: "/services/analytics"
-        },
-        {
-            title: "Security Solutions",
-            href: "/services/security"
+            title: "About Us",
+            href: "/about"
         }
     ];
 
@@ -42,17 +30,9 @@ export function Footer() {
             href: "/about"
         },
         {
-            title: "Our Mission",
-            href: "/about"
-        },
-        {
-            title: "FAQ's",
-            href: "/faqs"
-        },
-        {
             title: "Contact Us",
             href: "/contactus"
-        },
+        }
     ];
 
     return (
@@ -107,7 +87,7 @@ export function Footer() {
 
                                         <div>
                         <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
-                            Digital Services
+                            Quick Links
                         </h3>
                         <ul className="mt-4 space-y-3">
                             {digitalServices.map((service) => (

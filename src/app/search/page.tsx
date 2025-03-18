@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { alternatives } from "../alternatives-to/page";
+import Image from "next/image";
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
@@ -18,7 +19,18 @@ export default function SearchPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-gray-900/[0.04] dark:bg-grid-gray-100/[0.02] bg-[size:20px_20px] pointer-events-none" />
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 dark:opacity-20">
+        <Image
+          src="/images/hero-illustration.svg"
+          alt="Background pattern"
+          width={800}
+          height={600}
+          className="w-full max-w-4xl"
+          priority
+        />
+      </div>
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           Search Results for "{query}"
@@ -39,7 +51,7 @@ export default function SearchPage() {
             {filteredAlternatives.map((category) => (
               <div 
                 key={category.id}
-                className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300"
+                className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="flex items-center gap-4 mb-6">
                   <span className="text-4xl bg-blue-50 dark:bg-gray-700 p-3 rounded-xl">{category.icon}</span>
@@ -52,7 +64,7 @@ export default function SearchPage() {
                   {category.alternatives.map((alt) => (
                     <div 
                       key={alt.name}
-                      className="border border-gray-100 dark:border-gray-700 rounded-xl p-6 hover:border-blue-500 dark:hover:border-blue-400 transition-colors duration-300"
+                      className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-100 dark:border-gray-700 rounded-xl p-6 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
                     >
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{alt.name}</h3>
                       <p className="text-gray-600 dark:text-gray-300 mb-4 min-h-[3rem]">
