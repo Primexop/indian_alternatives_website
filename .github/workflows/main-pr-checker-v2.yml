@@ -1,0 +1,104 @@
+name: Main Branch PR Checker V2
+
+on:
+  pull_request:
+    branches: ["main"]
+
+env:
+  NODE_VERSION: "22.x"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-updated-from-main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Ensure the full history is fetched
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Fetch all branches
+        run: git fetch --all
+
+      - name: Check if PR is up to date with main
+        run: |
+          BASE_SHA=$(git merge-base origin/main HEAD)
+          MAIN_SHA=$(git rev-parse origin/main)
+          echo "BASE_SHA: $BASE_SHA"
+          echo "MAIN_SHA: $MAIN_SHA"
+          if [ "$BASE_SHA" != "$MAIN_SHA" ]; then
+            echo "This PR is not up to date with the main branch."
+            exit 1
+          else
+            echo "This PR is up to date with the main branch."
+          fi
+
+
+  check-restricted-paths:
+    needs: ["check-updated-from-main"]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Ensure the full history is fetched
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Check for changes in restricted paths
+        run: |
+          # Define the array of restricted paths
+          RESTRICTED_PATHS=(
+           ".github"
+           ".eslintignore"
+           "bashScripts"
+           "b2fPortal"
+           ".gitignore"
+           ".eslintrc.json"
+           "next.config.mjs"
+           "tsconfig.json"
+          )
+          # Get the base commit SHA
+          BASE_SHA=$(git merge-base origin/main HEAD)
+
+          # Get the list of files changed in the PR
+          CHANGED_FILES=$(git diff --name-only $BASE_SHA HEAD)
+
+
+          # Check if any of the restricted paths are in the list of changed files
+          for path in "${RESTRICTED_PATHS[@]}"; do
+            if echo "$CHANGED_FILES" | grep -qE "^${path}"; then
+              echo "Error: Pull request contains changes in restricted path: $path."
+              exit 1
+            fi
+          done
+  
+  check-main-pr-code:
+    needs: ["check-updated-from-main","check-restricted-paths"]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout GitHub Action"
+        uses: actions/checkout@v4
+
+      - name: "Setup Node"
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Check Current Directory
+        run: pwd
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Lint Project
+        run: npm run lint
+      - name: Build Project
+        run: npm run build
+
+      - name: Remove all files
+        run: rm -rf .[!.]* *

@@ -1,0 +1,17 @@
+{
+  "$DbEnums.d.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\dummyx\\backend\\prisma\\dummyx\\generatedClient\\sql\\$DbEnums.d.ts",
+    "mtime": 1741706385806,
+    "localDate": "11/3/2025, 8:49:45 pm"
+  },
+  "demo.d.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\dummyx\\backend\\prisma\\dummyx\\generatedClient\\sql\\demo.d.ts",
+    "mtime": 1741706385806,
+    "localDate": "11/3/2025, 8:49:45 pm"
+  },
+  "index.d.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\dummyx\\backend\\prisma\\dummyx\\generatedClient\\sql\\index.d.ts",
+    "mtime": 1741706385806,
+    "localDate": "11/3/2025, 8:49:45 pm"
+  }
+}

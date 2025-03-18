@@ -1,0 +1,22 @@
+{
+  "default.d.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\dummyx\\backend\\prisma\\dummyx\\generatedClient\\default.d.ts",
+    "mtime": 1741706385798,
+    "localDate": "11/3/2025, 8:49:45 pm"
+  },
+  "edge.d.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\dummyx\\backend\\prisma\\dummyx\\generatedClient\\edge.d.ts",
+    "mtime": 1741706385798,
+    "localDate": "11/3/2025, 8:49:45 pm"
+  },
+  "index.d.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\dummyx\\backend\\prisma\\dummyx\\generatedClient\\index.d.ts",
+    "mtime": 1741706385798,
+    "localDate": "11/3/2025, 8:49:45 pm"
+  },
+  "wasm.d.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\dummyx\\backend\\prisma\\dummyx\\generatedClient\\wasm.d.ts",
+    "mtime": 1741706385799,
+    "localDate": "11/3/2025, 8:49:45 pm"
+  }
+}

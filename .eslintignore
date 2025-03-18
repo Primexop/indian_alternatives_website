@@ -1,0 +1,8 @@
+*.html
+*.md
+*.json
+out/**.**
+.next/**.**
+tailwind.config.js
+backendPortal
+vite-env.d.ts

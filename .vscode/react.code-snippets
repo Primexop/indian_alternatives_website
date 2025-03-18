@@ -1,0 +1,39 @@
+{
+
+	"react Ts Functional component": {
+		"prefix": "rc",
+		"body": [
+			"",
+			"type T${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}} = {",
+			"test?: string",
+			"}",
+			"",
+			"",
+			"export function ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}({test }: T${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}) {",
+			"    return <>",
+			"         $0",
+			"    </>;",
+			"}",
+			"",
+			""
+		],
+		"description": "react Ts Functional component"
+	},
+	"react Ts Page component": {
+		"prefix": "rp",
+		"body": [
+			"",
+		
+			"",
+			"",
+			"function ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}Page() {",
+			"    return <>",
+			"         $0",
+			"    </>;",
+			"}",
+			"",
+			""
+		],
+		"description": "react Ts Page component"
+	},
+}

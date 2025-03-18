@@ -1,0 +1,37 @@
+{
+  "apkBuilds.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\shared_one\\backend\\src\\dummyx\\projectB2f\\constants\\apkBuilds.ts",
+    "mtime": 1727156513687,
+    "localDate": "24/9/2024, 11:11:53 am"
+  },
+  "contests.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\shared_one\\backend\\src\\dummyx\\projectB2f\\constants\\contests.ts",
+    "mtime": 1727156513687,
+    "localDate": "24/9/2024, 11:11:53 am"
+  },
+  "enumsData.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\shared_one\\backend\\src\\dummyx\\projectB2f\\constants\\enumsData.ts",
+    "mtime": 1738700605016,
+    "localDate": "5/2/2025, 1:53:25 am"
+  },
+  "games.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\shared_one\\backend\\src\\dummyx\\projectB2f\\constants\\games.ts",
+    "mtime": 1727156513687,
+    "localDate": "24/9/2024, 11:11:53 am"
+  },
+  "projectInfo.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\dummyx\\backend\\src\\dummyx\\projectB2f\\constants\\projectInfo.ts",
+    "mtime": 1740435916312,
+    "localDate": "25/2/2025, 3:55:16 am"
+  },
+  "support.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\shared_one\\backend\\src\\dummyx\\projectB2f\\constants\\support.ts",
+    "mtime": 1727156513687,
+    "localDate": "24/9/2024, 11:11:53 am"
+  },
+  "wallet.ts": {
+    "sourceFilePath": "C:\\primexopRepos\\shared_one\\backend\\src\\dummyx\\projectB2f\\constants\\wallet.ts",
+    "mtime": 1727156513687,
+    "localDate": "24/9/2024, 11:11:53 am"
+  }
+}

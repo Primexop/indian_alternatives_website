@@ -1,0 +1,68 @@
+name: Stable Branch PR Checker V2
+
+on:
+  pull_request:
+    branches: ["stable"]
+env:
+  NODE_VERSION: "22.x"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  stable-pr-auth-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if PR is from main to stable
+        id: branch-check
+        run: |
+          base_branch=${{ github.event.pull_request.base.ref }}
+          head_branch=${{ github.event.pull_request.head.ref }}
+          echo "Base branch: $base_branch"
+          echo "Head branch: $head_branch"
+          if [[ "$base_branch" != "stable" || "$head_branch" != "main" ]]; then
+            echo "This PR is not from main to stable. Failing the job."
+            exit 1
+          fi
+
+      - name: Check if PR is created by the allowed user
+        id: user-check
+        run: |
+          allowed_user="AdarshHatkar" 
+          pr_user=${{ github.event.pull_request.user.login }}
+          echo "PR created by: $pr_user"
+          if [[ "$pr_user" != "$allowed_user" ]]; then
+            echo "This PR was not created by the allowed user. Failing the job."
+            exit 1
+          fi
+
+
+
+  check-stable-pr-code:
+    needs: ["stable-pr-auth-check"]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout GitHub Action"
+        uses: actions/checkout@v4
+
+      - name: "Setup Node"
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Check Current Directory
+        run: pwd
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Lint Project
+        run: npm run lint
+      - name: Build Project
+        run: npm run build
+
+      - name: Remove all files
+        run: rm -rf .[!.]* *
